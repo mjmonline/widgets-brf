@@ -1,0 +1,110 @@
+"use client";
+
+import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts";
+
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  type ChartConfig,
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+  ChartLegend,
+  ChartLegendContent,
+} from "@/components/ui/chart";
+import { useTodaysSpotPrices } from "./useTodaysSpotPrices";
+
+// Chart configuration for shadcn charts
+const chartConfig = {
+  sek: {
+    label: "öre/kWh",
+    // You can map to a CSS variable or keep a hard color. Using CSS var is recommended.
+    color: "var(--chart-2)",
+  },
+} satisfies ChartConfig;
+
+export function SpotPrices() {
+  const { data = [], isError, isLoading } = useTodaysSpotPrices();
+
+  // Transform to the minimal shape the chart needs
+  const chartData = data.map((d) => ({
+    time: d.time_start,
+    sek: d.SEK_per_kWh * 100,
+  }));
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (isError) {
+    return <div>Error loading data</div>;
+  }
+
+  if (data.length === 0) {
+    return <div>No data available</div>;
+  }
+
+  return (
+    <Card className="py-0">
+      <CardHeader className="flex flex-col items-stretch border-b !p-0 sm:flex-row">
+        <div className="flex flex-1 flex-col justify-center gap-1 px-6 pt-4 pb-3 sm:!py-0">
+          <CardTitle>Dagens timpris på el</CardTitle>
+          <CardDescription>Spotpriser för 2025-09-25</CardDescription>
+        </div>
+      </CardHeader>
+      <CardContent className="px-2 sm:p-6">
+        <ChartContainer
+          config={chartConfig}
+          className="aspect-auto h-[250px] w-full"
+        >
+          <BarChart
+            accessibilityLayer
+            data={chartData}
+            margin={{ left: 12, right: 12 }}
+          >
+            <CartesianGrid vertical={false} />
+            <XAxis
+              dataKey="time"
+              tickLine={false}
+              axisLine={false}
+              tickMargin={4}
+              interval={0}
+              minTickGap={0}
+              tickFormatter={(value: string) => {
+                const date = new Date(value);
+                return date.toLocaleTimeString("sv-SE", {
+                  hour: "2-digit",
+                });
+              }}
+            />
+            <YAxis />
+            <ChartTooltip
+              content={
+                <ChartTooltipContent
+                  className="w-[150px]"
+                  // Use the x-value (time) as the label in the tooltip
+                  labelFormatter={(value) =>
+                    new Date(String(value)).toLocaleString("sv-SE", {
+                      year: "numeric",
+                      month: "2-digit",
+                      day: "2-digit",
+                      hour: "2-digit",
+                      minute: "2-digit",
+                    })
+                  }
+                />
+              }
+            />
+            <ChartLegend content={<ChartLegendContent />} />
+            <Bar dataKey="sek" fill="var(--color-sek)" />
+          </BarChart>
+        </ChartContainer>
+      </CardContent>
+    </Card>
+  );
+}

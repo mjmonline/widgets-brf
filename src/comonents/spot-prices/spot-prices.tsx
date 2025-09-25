@@ -70,11 +70,12 @@ export function SpotPrices() {
             <CartesianGrid vertical={false} />
             <XAxis
               dataKey="time"
+              minTickGap={5}
               tickLine={false}
-              axisLine={false}
               tickMargin={4}
+              axisLine={false}
               interval={0}
-              minTickGap={0}
+              // angle={-45}
               tickFormatter={(value: string) => {
                 const date = new Date(value);
                 return date.toLocaleTimeString("sv-SE", {
@@ -82,7 +83,12 @@ export function SpotPrices() {
                 });
               }}
             />
-            <YAxis />
+            <YAxis
+              minTickGap={5}
+              tickLine={false}
+              tickMargin={4}
+              axisLine={false}
+            />
             <ChartTooltip
               content={
                 <ChartTooltipContent

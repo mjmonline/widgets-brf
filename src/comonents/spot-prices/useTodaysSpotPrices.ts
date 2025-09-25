@@ -20,7 +20,6 @@ export function useTodaysSpotPrices() {
     `https://www.elprisetjustnu.se/api/v1/prices/${year}/${month}-${day}_SE3.json`,
     fetcher
   );
-  console.log("🚀 ~ useTodaysSpotPrices ~ data:", data);
 
   return {
     data,

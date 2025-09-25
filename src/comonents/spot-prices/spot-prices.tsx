@@ -50,7 +50,7 @@ export function SpotPrices() {
   }
 
   return (
-    <Card className="max-w-[540px] h-[370px]">
+    <Card className="max-w-[540px] h-[370px] border-0">
       <CardHeader className="border-b">
         <div className="flex flex-1 flex-col justify-center gap-1">
           <CardTitle>Dagens timpris på el</CardTitle>

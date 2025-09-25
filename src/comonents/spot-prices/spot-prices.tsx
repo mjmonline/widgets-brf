@@ -54,7 +54,7 @@ export function SpotPrices() {
       <CardHeader className="border-b">
         <div className="flex flex-1 flex-col justify-center gap-1">
           <CardTitle>Dagens timpris på el</CardTitle>
-          <CardDescription>Spotpriser för 2025-09-25</CardDescription>
+          <CardDescription>Spotpriser 2025-09-25</CardDescription>
         </div>
       </CardHeader>
       <CardContent className="grow-1 flex items-center">

@@ -24,7 +24,7 @@ const chartConfig = {
   sek: {
     label: "öre/kWh",
     // You can map to a CSS variable or keep a hard color. Using CSS var is recommended.
-    color: "var(--chart-2)",
+    color: "var(--chart-4)",
   },
 } satisfies ChartConfig;
 
@@ -50,14 +50,14 @@ export function SpotPrices() {
   }
 
   return (
-    <Card className="max-w-[540px] shadow-none rounded-none">
+    <Card className="max-w-[540px] h-[370px]">
       <CardHeader className="border-b">
         <div className="flex flex-1 flex-col justify-center gap-1">
           <CardTitle>Dagens timpris på el</CardTitle>
           <CardDescription>Spotpriser för 2025-09-25</CardDescription>
         </div>
       </CardHeader>
-      <CardContent>
+      <CardContent className="grow-1 flex items-center">
         <ChartContainer
           config={chartConfig}
           className="aspect-auto h-[250px] w-full"

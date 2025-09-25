@@ -50,14 +50,14 @@ export function SpotPrices() {
   }
 
   return (
-    <Card className="py-0">
-      <CardHeader className="flex flex-col items-stretch border-b !p-0 sm:flex-row">
-        <div className="flex flex-1 flex-col justify-center gap-1 px-6 pt-4 pb-3 sm:!py-0">
+    <Card className="max-w-[540px] shadow-none rounded-none">
+      <CardHeader className="border-b">
+        <div className="flex flex-1 flex-col justify-center gap-1">
           <CardTitle>Dagens timpris på el</CardTitle>
           <CardDescription>Spotpriser för 2025-09-25</CardDescription>
         </div>
       </CardHeader>
-      <CardContent className="px-2 sm:p-6">
+      <CardContent>
         <ChartContainer
           config={chartConfig}
           className="aspect-auto h-[250px] w-full"
@@ -65,7 +65,7 @@ export function SpotPrices() {
           <BarChart
             accessibilityLayer
             data={chartData}
-            margin={{ left: 12, right: 12 }}
+            margin={{ left: 0, right: 0 }}
           >
             <CartesianGrid vertical={false} />
             <XAxis
@@ -88,6 +88,7 @@ export function SpotPrices() {
               tickLine={false}
               tickMargin={4}
               axisLine={false}
+              width={30}
             />
             <ChartTooltip
               content={

@@ -17,7 +17,7 @@ import {
   ChartLegend,
   ChartLegendContent,
 } from "@/components/ui/chart";
-import { useTodaysSpotPrices } from "./useTodaysSpotPrices";
+import { useSpotPrices } from "./useSpotPrices";
 
 // Chart configuration for shadcn charts
 const chartConfig = {
@@ -28,8 +28,10 @@ const chartConfig = {
   },
 } satisfies ChartConfig;
 
+const now = new Date();
+
 export function SpotPrices() {
-  const { data = [], isError, isLoading } = useTodaysSpotPrices();
+  const { data = [], isError, isLoading } = useSpotPrices(now);
 
   // Transform to the minimal shape the chart needs
   const chartData = data
@@ -59,7 +61,9 @@ export function SpotPrices() {
       <CardHeader className="border-b">
         <div className="flex flex-1 flex-col justify-center gap-1">
           <CardTitle>Dagens timpris på el</CardTitle>
-          <CardDescription>Spotpriser 2025-09-25</CardDescription>
+          <CardDescription>
+            Spotpriser {now.toLocaleDateString("sv-SE")}
+          </CardDescription>
         </div>
       </CardHeader>
       <CardContent className="grow-1 flex items-center">

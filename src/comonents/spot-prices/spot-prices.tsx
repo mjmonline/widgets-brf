@@ -32,10 +32,15 @@ export function SpotPrices() {
   const { data = [], isError, isLoading } = useTodaysSpotPrices();
 
   // Transform to the minimal shape the chart needs
-  const chartData = data.map((d) => ({
-    time: d.time_start,
-    sek: d.SEK_per_kWh * 100,
-  }));
+  const chartData = data
+    .filter((d) => {
+      const date = new Date(d.time_start);
+      return date.getMinutes() === 0;
+    })
+    .map((d) => ({
+      time: d.time_start,
+      sek: d.SEK_per_kWh * 100,
+    }));
 
   if (isLoading) {
     return <div>Loading...</div>;

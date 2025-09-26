@@ -35,7 +35,7 @@ export function SpotPrices() {
   const chartData = data
     .filter((d) => {
       const date = new Date(d.time_start);
-      return date.getMinutes() === 0;
+      return date.getMinutes() === 0; // Keep only full hours
     })
     .map((d) => ({
       time: d.time_start,

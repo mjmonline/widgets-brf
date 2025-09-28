@@ -1,5 +1,3 @@
-"use client";
-
 import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts";
 
 import {
@@ -57,14 +55,12 @@ export function SpotPrices() {
   }
 
   return (
-    <Card className="max-w-[540px] h-[370px] border-0">
-      <CardHeader className="border-b">
-        <div className="flex flex-1 flex-col justify-center gap-1">
-          <CardTitle>Dagens timpris på el</CardTitle>
-          <CardDescription>
-            Spotpriser {now.toLocaleDateString("sv-SE")}
-          </CardDescription>
-        </div>
+    <Card id="spot-prices">
+      <CardHeader>
+        <CardTitle>Dagens timpris på el</CardTitle>
+        <CardDescription>
+          Spotpriser {now.toLocaleDateString("sv-SE")}
+        </CardDescription>
       </CardHeader>
       <CardContent className="grow-1 flex items-center">
         <ChartContainer

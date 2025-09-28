@@ -15,14 +15,16 @@ export function Rss() {
           Anmäl gärna ert deltagande till{" "}
           <span className="text-blue-500">styrelsen@brflovisedal5.se</span>
         </p>
-        <h3 className="font-bold text-lg mb-4">Uppställd container</h3>
-        <p>
+        <p className="mb-4">
           Den 3–6 oktober står en container vid 167:an för skrymmande avfall som
-          inte ryms i vanlig sophantering. Släng inte kemikalier, elektronik,
-          farligt avfall, däck, tryckimpregnerat trä, vitvaror eller
-          hushållssopor, då detta orsakar stora merkostnader.
+          inte ryms i vanlig sophantering.{" "}
+          <span className="font-bold">
+            Släng inte kemikalier, elektronik, farligt avfall, däck,
+            tryckimpregnerat trä, vitvaror eller hushållssopor, då detta orsakar
+            stora merkostnader.
+          </span>
         </p>
-        <p>Trevlig söndag och en fin start på hösten!</p>
+        <p>Vi önskar er en fin start på hösten!</p>
       </CardContent>
     </Card>
   );

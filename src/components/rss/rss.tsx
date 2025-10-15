@@ -4,27 +4,28 @@ export function Rss() {
   return (
     <Card id="cleanup-day">
       <CardHeader>
-        <CardTitle>Städdag</CardTitle>
+        <CardTitle>Garagestädning, onsdag 22 oktober</CardTitle>
       </CardHeader>
       <CardContent className="">
         <p className="mb-4">
-          Höstens städdag hålls lördag 4 oktober. Vi samlas kl. 11.00 vid
-          utegrillen och avslutar med korvgrillning.
+          Onsdag 22 oktober kl 09:00 och 16:00 kommer garaget att våtsopas.
+          Viktigt att <span className="font-bold">alla fordon</span> är borta ur
+          garaget!
         </p>
         <p className="mb-4">
-          Anmäl gärna ert deltagande till{" "}
-          <span className="text-blue-500">styrelsen@brflovisedal5.se</span>
+          Om du är bortrest under den tiden så ordna med att en granne eller vän
+          flyttar din bil, MC eller moped. Allt skall bort.
+        </p>
+        <hr className="mb-4" />
+        <p className="mb-4">
+          Wednesday, October 22nd at 09:00 and 16:00 the garage will be wet
+          swept. It is important that{" "}
+          <span className="font-bold">all vehicles</span> are out of the garage!
         </p>
         <p className="mb-4">
-          Den 3–6 oktober står en container vid 167:an för skrymmande avfall som
-          inte ryms i vanlig sophantering.{" "}
-          <span className="font-bold">
-            Släng inte kemikalier, elektronik, farligt avfall, däck,
-            tryckimpregnerat trä, vitvaror eller hushållssopor, då detta orsakar
-            stora merkostnader.
-          </span>
+          If you are away during that time, arrange for a neighbor or friend to
+          move your car, motorcycle or moped. Everything must be removed.
         </p>
-        <p>Vi önskar er en fin start på hösten!</p>
       </CardContent>
     </Card>
   );
